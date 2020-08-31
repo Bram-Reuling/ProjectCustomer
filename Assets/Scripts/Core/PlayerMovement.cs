@@ -18,8 +18,8 @@ namespace ProjectCustomer.Core
         public LayerMask groundMask;
         
         private Vector3 velocity;
-        private bool isGrounded;
 
+        public bool IsGrounded { get; private set; }
         public float XAxis { get; private set; }
         public float ZAxis { get; private set; }
 
@@ -53,7 +53,7 @@ namespace ProjectCustomer.Core
 
         private void Jump()
         {
-            if (Input.GetButtonDown("Jump") && isGrounded)
+            if (Input.GetButtonDown("Jump") && IsGrounded)
             {
                 velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             }
@@ -68,9 +68,9 @@ namespace ProjectCustomer.Core
 
         private void GroundCheck()
         {
-            isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+            IsGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-            if (isGrounded && velocity.y < 0)
+            if (IsGrounded && velocity.y < 0)
             {
                 velocity.y = -2f;
             }

@@ -27,8 +27,8 @@ namespace ProjectCustomer.Core
 
         private void Update()
         {
-            // Is the player moving?
-            if (Mathf.Abs(controller.XAxis) > 0.1f || Mathf.Abs(controller.ZAxis) > 0.1f)
+            // Is the player moving and on the ground?
+            if ((Mathf.Abs(controller.XAxis) > 0.1f || Mathf.Abs(controller.ZAxis) > 0.1f) && controller.IsGrounded)
             {
                 // Yes
                 timer += Time.deltaTime * walkingBobSpeed;
