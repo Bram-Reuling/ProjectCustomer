@@ -1,7 +1,6 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace TimeLess.Core
+namespace ProjectCustomer.Core
 {
     public class PlayerLook : MonoBehaviour
     {
