@@ -20,6 +20,9 @@ namespace ProjectCustomer.Core
         private Vector3 velocity;
         private bool isGrounded;
 
+        public float XAxis { get; private set; }
+        public float ZAxis { get; private set; }
+
         #endregion
 
         #region Start Up
@@ -75,10 +78,10 @@ namespace ProjectCustomer.Core
 
         private void MovePlayer()
         {
-            var x = Input.GetAxis("Horizontal");
-            var z = Input.GetAxis("Vertical");
+            XAxis = Input.GetAxis("Horizontal");
+            ZAxis = Input.GetAxis("Vertical");
 
-            var move = transform.right * x + transform.forward * z;
+            var move = transform.right * XAxis + transform.forward * ZAxis;
             move = Vector3.ClampMagnitude(move, 1f);
             
             controller.Move(move * (speed * Time.deltaTime));
