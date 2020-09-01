@@ -1,7 +1,6 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace ProjectCustomer.Core
+namespace ProjectCustomer.Core.Player
 {
     [ExecuteInEditMode]
     public class ImageEffect : MonoBehaviour
