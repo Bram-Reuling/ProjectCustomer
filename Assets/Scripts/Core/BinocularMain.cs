@@ -1,9 +1,9 @@
-﻿using System;
+﻿using ProjectCustomer.Core.Binocular_States;
 using UnityEngine;
 
-namespace ProjectCustomer.Core.Binocular
+namespace ProjectCustomer.Core
 {
-    public class Binocular : MonoBehaviour
+    public class BinocularMain : MonoBehaviour
     {
         #region Fields
 
@@ -11,6 +11,9 @@ namespace ProjectCustomer.Core.Binocular
         
         public Camera mainCam;
         public float camFocalLength;
+
+        public PlayerLook playerCam;
+        public int origSens;
 
         private BinocularBaseState currentState;
 
@@ -24,6 +27,10 @@ namespace ProjectCustomer.Core.Binocular
         private void Start()
         {
             mainCam = Camera.main;
+
+            playerCam = GetComponent<PlayerLook>();
+            origSens = playerCam.mouseSensitivity;
+            
             if (mainCam != null) camFocalLength = mainCam.focalLength;
             TransitionToState(NotEquippedState);
         }

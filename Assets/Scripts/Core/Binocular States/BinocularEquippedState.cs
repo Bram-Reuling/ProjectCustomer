@@ -1,16 +1,18 @@
 ﻿using UnityEngine;
 
-namespace ProjectCustomer.Core.Binocular
+namespace ProjectCustomer.Core.Binocular_States
 {
     public class BinocularEquippedState : BinocularBaseState
     {
-        public override void EnterState(Binocular binocular)
+        public override void EnterState(BinocularMain binocular)
         {
             binocular.binocularImage.SetActive(true);
             binocular.mainCam.focalLength = binocular.camFocalLength * 4;
+            
+            binocular.playerCam.mouseSensitivity = 50;
         }
 
-        public override void Update(Binocular binocular)
+        public override void Update(BinocularMain binocular)
         {
             if (Input.GetKeyDown(KeyCode.C))
             {
@@ -18,7 +20,7 @@ namespace ProjectCustomer.Core.Binocular
             }
         }
 
-        public override void OnCollision(Binocular binocular)
+        public override void OnCollision(BinocularMain binocular)
         {
             
         }
