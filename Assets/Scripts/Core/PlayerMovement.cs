@@ -10,6 +10,7 @@ namespace ProjectCustomer.Core
         private CharacterController controller;
 
         public float speed = 12f;
+        public float runSpeed = 17f;
         public float gravity = -9.81f;
         public float jumpHeight = 3f;
 
@@ -83,8 +84,15 @@ namespace ProjectCustomer.Core
 
             var move = transform.right * XAxis + transform.forward * ZAxis;
             move = Vector3.ClampMagnitude(move, 1f);
-            
-            controller.Move(move * (speed * Time.deltaTime));
+
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                controller.Move(move * (runSpeed * Time.deltaTime));
+            }
+            else
+            {
+                controller.Move(move * (speed * Time.deltaTime));
+            }
         }
 
         #endregion
