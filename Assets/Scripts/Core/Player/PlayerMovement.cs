@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ProjectCustomer.Core
+namespace ProjectCustomer.Core.Player
 {
     [RequireComponent(typeof(CharacterController))]
     public class PlayerMovement : MonoBehaviour

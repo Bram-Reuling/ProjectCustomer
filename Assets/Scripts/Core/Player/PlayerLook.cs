@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ProjectCustomer.Core
+namespace ProjectCustomer.Core.Player
 {
     public class PlayerLook : MonoBehaviour
     {
