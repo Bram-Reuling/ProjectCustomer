@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ProjectCustomer.Core.Player
+namespace ProjectCustomer.Core
 {
     public class PlayerHeadBob : MonoBehaviour
     {
