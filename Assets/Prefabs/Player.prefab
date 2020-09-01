@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 984803946020400321}
   - component: {fileID: 984803946020400322}
   - component: {fileID: 984803946020400335}
+  - component: {fileID: 1055271072}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -57,7 +58,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 984803946020400324}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.96, z: 0}
+  m_LocalPosition: {x: 0, y: 0.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 984803946265287312}
@@ -91,7 +92,7 @@ Camera:
   field of view: 60
   orthographic: 0
   orthographic size: 5
-  m_Depth: -1
+  m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -127,7 +128,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 984803946265287312}
-  mouseSensitivity: 225
+  mouseSensitivity: 500
+--- !u!114 &1055271072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984803946020400324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e203ae73b3d8ea046ab83360115561b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkingBobSpeed: 14
+  runningBobSpeed: 18
+  amountOfBobbing: 0.1
+  controller: {fileID: 984803946265287326}
 --- !u!1 &984803946265287313
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,14 +192,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dae5c0565fdf9d4499920957936535d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 5
+  runSpeed: 10
   gravity: -19.62
   jumpHeight: 1
   groundCheck: {fileID: 984803945790541484}
   groundDistance: 0.4
   groundMask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 256
 --- !u!143 &984803946265287327
 CharacterController:
   m_ObjectHideFlags: 0
@@ -196,7 +214,7 @@ CharacterController:
   serializedVersion: 2
   m_Height: 2
   m_Radius: 0.5
-  m_SlopeLimit: 45
+  m_SlopeLimit: 60
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
@@ -219,7 +237,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &984803946352402480
 Transform:
   m_ObjectHideFlags: 0

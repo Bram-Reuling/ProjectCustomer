@@ -8,6 +8,7 @@ namespace ProjectCustomer.Core
         #region Fields
 
         public float walkingBobSpeed = 14f;
+        public float runningBobSpeed = 18f;
         public float amountOfBobbing = 0.05f;
         public PlayerMovement controller;
 
@@ -31,7 +32,15 @@ namespace ProjectCustomer.Core
             if ((Mathf.Abs(controller.XAxis) > 0.1f || Mathf.Abs(controller.ZAxis) > 0.1f) && controller.IsGrounded)
             {
                 // Yes
-                timer += Time.deltaTime * walkingBobSpeed;
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    timer += Time.deltaTime * runningBobSpeed;
+                }
+                else
+                {
+                    timer += Time.deltaTime * walkingBobSpeed;
+                }
+                
                 var localPosition = transform.localPosition;
                 localPosition = new Vector3(localPosition.x, defaultPosY + Mathf.Sin(timer) * amountOfBobbing, localPosition.z);
                 transform.localPosition = localPosition;
