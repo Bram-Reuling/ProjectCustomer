@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 984803946020400322}
   - component: {fileID: 984803946020400335}
   - component: {fileID: 1055271072}
+  - component: {fileID: 746925040}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -100,7 +101,7 @@ Camera:
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
-  m_HDR: 0
+  m_HDR: 1
   m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
@@ -145,6 +146,19 @@ MonoBehaviour:
   runningBobSpeed: 18
   amountOfBobbing: 0.1
   controller: {fileID: 984803946265287326}
+--- !u!114 &746925040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984803946020400324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 693f5905cd3fa2646bc24ddba4757367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: 9ace50ac454832f48a9c362cef025430, type: 2}
 --- !u!1 &984803946265287313
 GameObject:
   m_ObjectHideFlags: 0
