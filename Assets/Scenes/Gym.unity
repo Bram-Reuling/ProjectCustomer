@@ -15,9 +15,9 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogColor: {r: 0.9245283, g: 0.3270737, b: 0.3270737, a: 1}
+  m_FogMode: 2
+  m_FogDensity: 0.12
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -254,6 +254,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 746925040, guid: e9c3a1873c56066438a7d157f4522470, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 984803946265287312, guid: e9c3a1873c56066438a7d157f4522470, type: 3}
       propertyPath: m_LocalPosition.x
       value: 17.652275
@@ -3551,7 +3555,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh23626
+  m_Name: pb_Mesh21310
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3715,7 +3719,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh23602
+  m_Name: pb_Mesh21294
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
