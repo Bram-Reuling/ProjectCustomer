@@ -1,5 +1,6 @@
 ﻿using ProjectCustomer.Core.Binocular_States;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
 namespace ProjectCustomer.Core
 {
@@ -8,7 +9,7 @@ namespace ProjectCustomer.Core
         #region Fields
 
         public GameObject binocularImage;
-        
+
         public Camera mainCam;
         public float camFocalLength;
 
