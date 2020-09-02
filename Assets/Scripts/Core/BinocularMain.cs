@@ -1,4 +1,5 @@
-﻿using ProjectCustomer.Core.Binocular_States;
+﻿using System;
+using ProjectCustomer.Core.Binocular_States;
 using UnityEngine;
 
 namespace ProjectCustomer.Core
@@ -20,12 +21,16 @@ namespace ProjectCustomer.Core
         public readonly BinocularEquippedState EquippedState = new BinocularEquippedState();
         public readonly BinocularNotEquippedState NotEquippedState = new BinocularNotEquippedState();
 
+        public bool canEquipBinocular = false;
+
         #endregion
 
         #region Startup
 
         private void Start()
         {
+            EventBroker.EventOnBinocularPickUp += SetEquipState;
+            
             mainCam = Camera.main;
 
             playerCam = GetComponent<PlayerLook>();
@@ -37,6 +42,11 @@ namespace ProjectCustomer.Core
 
         #endregion
 
+        private void SetEquipState()
+        {
+            canEquipBinocular = true;
+        }
+        
         public void TransitionToState(BinocularBaseState state)
         {
             currentState = state;
@@ -48,6 +58,9 @@ namespace ProjectCustomer.Core
             currentState.Update(this);
         }
 
-
+        private void OnDestroy()
+        {
+            EventBroker.EventOnBinocularPickUp -= SetEquipState;
+        }
     }
 }

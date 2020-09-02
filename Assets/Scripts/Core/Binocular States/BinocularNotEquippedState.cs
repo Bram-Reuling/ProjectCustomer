@@ -16,7 +16,7 @@ namespace ProjectCustomer.Core.Binocular_States
 
         public override void Update(BinocularMain binocular)
         {
-            if (Input.GetKeyDown(KeyCode.C))
+            if (Input.GetKeyDown(KeyCode.C) && binocular.canEquipBinocular)
             {
                 binocular.TransitionToState(binocular.EquippedState);
             }
