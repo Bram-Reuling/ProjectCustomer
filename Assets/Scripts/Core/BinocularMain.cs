@@ -1,4 +1,5 @@
-﻿using ProjectCustomer.Core.Binocular_States;
+﻿using System;
+using ProjectCustomer.Core.Binocular_States;
 using UnityEngine;
 
 namespace ProjectCustomer.Core
@@ -26,6 +27,8 @@ namespace ProjectCustomer.Core
 
         private void Start()
         {
+            EventBroker.EventOnBinocular += TestEvent;
+            
             mainCam = Camera.main;
 
             playerCam = GetComponent<PlayerLook>();
@@ -37,6 +40,11 @@ namespace ProjectCustomer.Core
 
         #endregion
 
+        private static void TestEvent()
+        {
+            Debug.Log("Event Called!");
+        }
+        
         public void TransitionToState(BinocularBaseState state)
         {
             currentState = state;
@@ -46,6 +54,11 @@ namespace ProjectCustomer.Core
         private void Update()
         {
             currentState.Update(this);
+        }
+
+        private void OnDestroy()
+        {
+            EventBroker.EventOnBinocular -= TestEvent;
         }
     }
 }
