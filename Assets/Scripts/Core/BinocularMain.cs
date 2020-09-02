@@ -27,7 +27,7 @@ namespace ProjectCustomer.Core
 
         private void Start()
         {
-            EventBroker.EventOnBinocular += TestEvent;
+            EventBroker.EventOnBinocularEquip += TestEvent;
             
             mainCam = Camera.main;
 
@@ -58,7 +58,7 @@ namespace ProjectCustomer.Core
 
         private void OnDestroy()
         {
-            EventBroker.EventOnBinocular -= TestEvent;
+            EventBroker.EventOnBinocularEquip -= TestEvent;
         }
     }
 }

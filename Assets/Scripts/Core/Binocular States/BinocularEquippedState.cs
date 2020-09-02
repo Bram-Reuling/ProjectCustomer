@@ -11,8 +11,7 @@ namespace ProjectCustomer.Core.Binocular_States
             
             binocular.playerCam.mouseSensitivity = 50;
             
-            // Test for calling event
-            EventBroker.CallEventOnBinocular();
+            EventBroker.CallEventOnBinocularEquip();
         }
 
         public override void Update(BinocularMain binocular)

@@ -10,6 +10,8 @@ namespace ProjectCustomer.Core.Binocular_States
             binocular.mainCam.focalLength = binocular.camFocalLength;
 
             binocular.playerCam.mouseSensitivity = binocular.origSens;
+            
+            EventBroker.CallEventOnBinocularUnEquip();
         }
 
         public override void Update(BinocularMain binocular)

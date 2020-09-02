@@ -4,11 +4,17 @@ namespace ProjectCustomer.Core
 {
     public static class EventBroker
     {
-        public static Action EventOnBinocular;
+        public static Action EventOnBinocularEquip;
+        public static Action EventOnBinocularUnEquip;
 
-        public static void CallEventOnBinocular()
+        public static void CallEventOnBinocularEquip()
         {
-            EventOnBinocular?.Invoke();
+            EventOnBinocularEquip?.Invoke();
+        }
+
+        public static void CallEventOnBinocularUnEquip()
+        {
+            EventOnBinocularUnEquip?.Invoke();
         }
     }
 }
