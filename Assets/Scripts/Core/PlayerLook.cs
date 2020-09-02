@@ -32,7 +32,7 @@ namespace ProjectCustomer.Core
             RaycastHit hit;
             if (!Physics.Raycast(transform.position, transform.forward, out hit, 5)) return;
             if (hit.transform.GetComponent<IInteractable>() == null) return;
-            Debug.Log("You hit interactable");
+
             if (Input.GetKeyDown(KeyCode.E))
             {
                 EventBroker.CallEventOnBinocularPickUp();
