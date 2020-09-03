@@ -7,6 +7,7 @@ namespace ProjectCustomer.Core
         public static Action EventOnBinocularPickUp;
         public static Action EventOnBinocularEquip;
         public static Action EventOnBinocularUnEquip;
+        public static Action EventOnWaterRefill;
 
         public static void CallEventOnBinocularPickUp()
         {
@@ -21,6 +22,11 @@ namespace ProjectCustomer.Core
         public static void CallEventOnBinocularUnEquip()
         {
             EventOnBinocularUnEquip?.Invoke();
+        }
+
+        public static void CallEventOnWaterRefill()
+        {
+            EventOnWaterRefill?.Invoke();
         }
     }
 }

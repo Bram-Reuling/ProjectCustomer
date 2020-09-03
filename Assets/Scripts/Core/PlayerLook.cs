@@ -33,9 +33,13 @@ namespace ProjectCustomer.Core
             if (!Physics.Raycast(transform.position, transform.forward, out hit, 5)) return;
             if (hit.transform.GetComponent<IInteractable>() == null) return;
 
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) && hit.collider.gameObject.name.Equals("Binoculars"))
             {
                 EventBroker.CallEventOnBinocularPickUp();
+            }
+            else if (Input.GetKey(KeyCode.E) && hit.collider.gameObject.name.Equals("WaterRefill"))
+            {
+                EventBroker.CallEventOnWaterRefill();
             }
         }
         
