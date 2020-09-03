@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using ProjectCustomer.Core;
+using UnityEngine;
 
 namespace ProjectCustomer.FireMech
 {
@@ -19,6 +21,11 @@ namespace ProjectCustomer.FireMech
         private float diffuseWild;
         private float diffuseEmbers;
         private float diffuseFire;
+
+        private void Awake()
+        {
+            EventBroker.CallEventOnFireStarted();
+        }
 
         private void Start()
         {
