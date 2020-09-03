@@ -6,13 +6,13 @@ namespace ProjectCustomer.Core
     public class ImageEffect : MonoBehaviour
     {
         public Material material;
-        Camera camera;
+        private Camera mainCamera;
 
         private void Awake()
         {
-            camera = Camera.main;
+            mainCamera = Camera.main;
 
-            if (camera != null) camera.depthTextureMode = DepthTextureMode.Depth;
+            if (mainCamera != null) mainCamera.depthTextureMode = DepthTextureMode.Depth;
         }
 
         private void OnRenderImage(RenderTexture src, RenderTexture dest)

@@ -1,11 +1,12 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace ProjectCustomer.FireMech
 {
     public class DiffuseFire : MonoBehaviour
     {
         private ParticleSystem water;
-        private ParticleCollisionEvent[] CollisionEvents;
+        private List<ParticleCollisionEvent> collisionEvents;
         private int eventCount = 0;
 
         private void Awake()
@@ -15,22 +16,14 @@ namespace ProjectCustomer.FireMech
 
         private void Start()
         {
-            CollisionEvents = new ParticleCollisionEvent[8];
+            collisionEvents = new List<ParticleCollisionEvent>();
         }
-
-        private void Update()
-        {
-            Debug.Log(water.particleCount);
-        }
-
+        
         private void OnParticleCollision(GameObject other)
         {
             var collCount = water.GetSafeCollisionEventSize();
-        
-            if (collCount > CollisionEvents.Length)
-                CollisionEvents = new ParticleCollisionEvent[collCount];
 
-            eventCount = water.GetCollisionEvents(other, CollisionEvents);
+            eventCount = water.GetCollisionEvents(other, collisionEvents);
 
             for (var i = 0; i < eventCount; i++)
             {
