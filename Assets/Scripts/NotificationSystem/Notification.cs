@@ -12,6 +12,7 @@ namespace ProjectCustomer.NotificationSystem
         public bool hasHitBottom = false;
         public bool goingUp = false;
         public bool coroutineStopped = false;
+        public Canvas canvas;
 
         private void Awake()
         {
@@ -48,14 +49,20 @@ namespace ProjectCustomer.NotificationSystem
 
                 rectTransformAnchoredPosition.y = Mathf.Clamp(rectTransformAnchoredPosition.y, -60, 60);
 
-                rectTransform.anchoredPosition = rectTransformAnchoredPosition; 
+                rectTransform.anchoredPosition = rectTransformAnchoredPosition;
+
+                if (rectTransform.anchoredPosition.y == 60)
+                {
+                    Destroy(gameObject);
+                    Destroy(canvas.gameObject);
+                }
             }
             
         }
         IEnumerator GoUp()
         {
             Debug.Log("Starting wait for seconds");
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(2f);
             goingUp = true;
         }
     }

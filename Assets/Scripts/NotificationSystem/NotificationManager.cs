@@ -1,19 +1,20 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using ProjectCustomer.Core;
+using TMPro;
 
 namespace ProjectCustomer.NotificationSystem
 {
     public class NotificationManager : MonoBehaviour
     {
+        public GameObject prefab;
+        public GameObject activePrefab;
+        public TextMeshProUGUI text;
+        
         public string fireStarted = "There is a Fire!";
         public string fireExtinguished = "Fire is under control!";
-        public string ammoLow = "Ammo is low!";
-        public string ammoEmpty = "You have no ammo left!";
-        public string ammoRefillStarted = "Refilling ammo!";
-        public string ammoFull = "Ammo is full!";
 
-        private Queue<string> notifications = new Queue<string>();
+        private Queue<GameObject> notifications = new Queue<GameObject>();
 
         private void Start()
         {
@@ -23,12 +24,21 @@ namespace ProjectCustomer.NotificationSystem
 
         private void EventOnFireStarted()
         {
-            Debug.Log(fireStarted);
+            CreateNotification(fireStarted);
         }
 
         private void EventOnFireExtinguished()
         {
-            Debug.Log(fireExtinguished);
+            CreateNotification(fireExtinguished);
+        }
+
+        private void CreateNotification(string notificationText)
+        {
+            // Instantiate Prefab
+            if (activePrefab != null) return;
+            activePrefab = Instantiate(prefab);   
+            text = activePrefab.GetComponent<NotificationBox>().textNotification;
+            text.text = notificationText;
         }
     }
 }
