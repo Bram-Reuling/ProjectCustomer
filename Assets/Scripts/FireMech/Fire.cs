@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using ProjectCustomer.Core;
 using UnityEngine;
 
@@ -22,10 +23,11 @@ namespace ProjectCustomer.FireMech
         private float diffuseEmbers;
         private float diffuseFire;
 
+        private bool fireIsOut = false;
+        private bool fireNotifSend = false;
+
         private void Start()
         {
-            EventBroker.CallEventOnFireStarted();
-            
             wildFireEmission = wildFire.emission;
             embersEmission = embers.emission;
             fireEmission = fire.emission;
@@ -37,8 +39,13 @@ namespace ProjectCustomer.FireMech
 
         private void Update()
         {
-
-            if (water.particleCount == 0)
+            if (!fireNotifSend)
+            {
+                fireNotifSend = true;
+                EventBroker.CallEventOnFireStarted();    
+            }
+            
+            if (water.particleCount == 0 && !fireIsOut)
             {
                 wildFireEmission.rateOverTimeMultiplier += diffuseWild;
                 embersEmission.rateOverTimeMultiplier += diffuseEmbers;
@@ -49,11 +56,14 @@ namespace ProjectCustomer.FireMech
                 fireEmission.rateOverTimeMultiplier = Mathf.Clamp(fireEmission.rateOverTimeMultiplier, 0, 5);
             }
             
-            if ((wildFireEmission.rateOverTimeMultiplier <= Mathf.Epsilon) || (embersEmission.rateOverTimeMultiplier <= Mathf.Epsilon) ||
-                (fireEmission.rateOverTimeMultiplier <= Mathf.Epsilon))
+            if ((wildFireEmission.rateOverTimeMultiplier <= 0) || (embersEmission.rateOverTimeMultiplier <= 0) ||
+                (fireEmission.rateOverTimeMultiplier <= 0))
             {
-                EventBroker.CallEventOnFireExtinguished();
-                Destroy(gameObject);
+                if (!fireIsOut)
+                {
+                    fireIsOut = true;
+                    StartCoroutine(DestroyTimer());
+                }
             }
         }
 
@@ -62,6 +72,13 @@ namespace ProjectCustomer.FireMech
             wildFireEmission.rateOverTimeMultiplier -= diffuseWild;
             embersEmission.rateOverTimeMultiplier -= diffuseEmbers;
             fireEmission.rateOverTimeMultiplier -= diffuseFire;
+        }
+
+        IEnumerator DestroyTimer()
+        {
+            yield return new WaitForSeconds(2.5f);
+            EventBroker.CallEventOnFireExtinguished();
+            Destroy(gameObject);
         }
     }
 }
