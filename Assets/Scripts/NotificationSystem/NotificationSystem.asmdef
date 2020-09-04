@@ -1,7 +1,8 @@
 {
-    "name": "FireMech",
+    "name": "NotificationSystem",
     "references": [
-        "GUID:b45aeea7aa24f444d9532c45191a7125"
+        "GUID:b45aeea7aa24f444d9532c45191a7125",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

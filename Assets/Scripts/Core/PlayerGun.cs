@@ -9,6 +9,7 @@ namespace ProjectCustomer.Core
         public float ammoAmount = 100f;
         public float ammoDepletionAmount = 0.01f;
         public float ammoReplenishAmount = 0.01f;
+        public float ammoLowBoundary = 20f;
 
         private void Start()
         {
