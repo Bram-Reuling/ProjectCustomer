@@ -22,13 +22,10 @@ namespace ProjectCustomer.FireMech
         private float diffuseEmbers;
         private float diffuseFire;
 
-        private void Awake()
-        {
-            EventBroker.CallEventOnFireStarted();
-        }
-
         private void Start()
         {
+            EventBroker.CallEventOnFireStarted();
+            
             wildFireEmission = wildFire.emission;
             embersEmission = embers.emission;
             fireEmission = fire.emission;
@@ -36,10 +33,6 @@ namespace ProjectCustomer.FireMech
             diffuseWild = wildFire.emission.rateOverTimeMultiplier * diffusePerParticle;
             diffuseEmbers = embers.emission.rateOverTimeMultiplier * diffusePerParticle;
             diffuseFire = fire.emission.rateOverTimeMultiplier * diffusePerParticle;
-            
-            Debug.Log("diffuseWild" + diffuseWild);
-            Debug.Log("diffuseEmbers" + diffuseEmbers);
-            Debug.Log("diffuseFire" + diffuseFire);
         }
 
         private void Update()
@@ -59,6 +52,7 @@ namespace ProjectCustomer.FireMech
             if ((wildFireEmission.rateOverTimeMultiplier <= Mathf.Epsilon) || (embersEmission.rateOverTimeMultiplier <= Mathf.Epsilon) ||
                 (fireEmission.rateOverTimeMultiplier <= Mathf.Epsilon))
             {
+                EventBroker.CallEventOnFireExtinguished();
                 Destroy(gameObject);
             }
         }

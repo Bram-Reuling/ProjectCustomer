@@ -35,10 +35,7 @@ namespace ProjectCustomer.Core
 
         public static Action EventOnFireStarted;
         public static Action EventOnFireExtinguished;
-        public static Action EventOnAmmoAlmostEmpty;
-        public static Action EventOnAmmoEmpty;
-        public static Action EventOnAmmoRefillStarted;
-        public static Action EventOnAmmoFull;
+
         public static Action EventOnWaterRefill;
 
         #endregion
@@ -55,26 +52,6 @@ namespace ProjectCustomer.Core
             EventOnFireExtinguished?.Invoke();
         }
 
-        public static void CallEventOnAmmoAlmostEmpty()
-        {
-            EventOnAmmoAlmostEmpty?.Invoke();
-        }
-
-        public static void CallEventOnAmmoEmpty()
-        {
-            EventOnAmmoEmpty?.Invoke();
-        }
-
-        public static void CallEventOnAmmoRefillStarted()
-        {
-            EventOnAmmoRefillStarted?.Invoke();
-        }
-
-        public static void CallEventOnAmmoFull()
-        {
-            EventOnAmmoFull?.Invoke();
-        }
-        
         public static void CallEventOnWaterRefill()
         {
             EventOnWaterRefill?.Invoke();

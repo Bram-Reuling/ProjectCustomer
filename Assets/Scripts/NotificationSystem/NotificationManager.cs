@@ -19,10 +19,6 @@ namespace ProjectCustomer.NotificationSystem
         {
             EventBroker.EventOnFireStarted += EventOnFireStarted;
             EventBroker.EventOnFireExtinguished += EventOnFireExtinguished;
-            EventBroker.EventOnAmmoAlmostEmpty += EventOnAmmoAlmostEmpty;
-            EventBroker.EventOnAmmoEmpty += EventOnAmmoEmpty;
-            EventBroker.EventOnAmmoRefillStarted += EventOnAmmoRefillStarted;
-            EventBroker.EventOnAmmoFull += EventOnAmmoFull;
         }
 
         private void EventOnFireStarted()
@@ -33,26 +29,6 @@ namespace ProjectCustomer.NotificationSystem
         private void EventOnFireExtinguished()
         {
             Debug.Log(fireExtinguished);
-        }
-
-        private void EventOnAmmoAlmostEmpty()
-        {
-            Debug.Log(ammoLow);
-        }
-
-        private void EventOnAmmoEmpty()
-        {
-            Debug.Log(ammoEmpty);
-        }
-
-        private void EventOnAmmoRefillStarted()
-        {
-            Debug.Log(ammoRefillStarted);
-        }
-
-        private void EventOnAmmoFull()
-        {
-            Debug.Log(ammoFull);
         }
     }
 }
