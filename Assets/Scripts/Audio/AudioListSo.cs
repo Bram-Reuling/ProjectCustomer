@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace ProjectCustomer.Core
+namespace ProjectCustomer.Audio
 {
     [CreateAssetMenu(fileName = "NewAudioList", menuName = "Audio Manager/Audio List", order = 0)]
     public class AudioListSo : ScriptableObject
