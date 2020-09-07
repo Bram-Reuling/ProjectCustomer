@@ -1,7 +1,7 @@
-﻿using System;
+﻿using ProjectCustomer.Core;
 using UnityEngine;
 
-namespace ProjectCustomer.Core
+namespace ProjectCustomer.Audio
 {
     public class AgentAudioStartFire : MonoBehaviour
     {
