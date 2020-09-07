@@ -62,6 +62,7 @@ MonoBehaviour:
   embers: {fileID: 9110850043315205371}
   fire: {fileID: 9083756442628860481}
   diffusePerParticle: 0.0005
+  fireSpawner: {fileID: 0}
 --- !u!1001 &8993581066064447557
 PrefabInstance:
   m_ObjectHideFlags: 0
