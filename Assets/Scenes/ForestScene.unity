@@ -129,7 +129,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh16502
+  m_Name: pb_Mesh41800
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1462,6 +1462,10 @@ PrefabInstance:
       propertyPath: m_SlopeLimit
       value: 55
       objectReference: {fileID: 0}
+    - target: {fileID: 6319051794328405922, guid: e9c3a1873c56066438a7d157f4522470, type: 3}
+      propertyPath: audioList
+      value: 
+      objectReference: {fileID: 11400000, guid: 5c186b45099f11543a92efce93a997b1, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9c3a1873c56066438a7d157f4522470, type: 3}
 --- !u!1 &1429353549
