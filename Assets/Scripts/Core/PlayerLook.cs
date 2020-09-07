@@ -30,6 +30,7 @@ namespace ProjectCustomer.Core
             CamControl();
 
             RaycastHit hit;
+            Debug.DrawRay(transform.position, Camera.main.transform.forward * 5, Color.blue);
             if (!Physics.Raycast(transform.position, transform.forward, out hit, 5)) return;
             if (hit.transform.GetComponent<IInteractable>() == null) return;
 
