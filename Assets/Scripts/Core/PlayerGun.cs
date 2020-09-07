@@ -18,6 +18,8 @@ namespace ProjectCustomer.Core
 
         private void Update()
         {
+            DataHandler.waterParticles = water.particleCount;
+            
             if (Input.GetMouseButton(0) && ammoAmount > 0)
             {
                 water.Play();

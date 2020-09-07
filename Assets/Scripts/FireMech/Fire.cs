@@ -10,8 +10,6 @@ namespace ProjectCustomer.FireMech
         public ParticleSystem wildFire;
         public ParticleSystem embers;
         public ParticleSystem fire;
-        
-        public ParticleSystem water;
 
         private ParticleSystem.EmissionModule wildFireEmission;
         private ParticleSystem.EmissionModule embersEmission;
@@ -25,6 +23,8 @@ namespace ProjectCustomer.FireMech
 
         private bool fireIsOut = false;
         private bool fireNotifSend = false;
+
+        public FireSpawner fireSpawner;
 
         private void Start()
         {
@@ -45,7 +45,7 @@ namespace ProjectCustomer.FireMech
                 EventBroker.CallEventOnFireStarted();    
             }
             
-            if (water.particleCount == 0 && !fireIsOut)
+            if (DataHandler.waterParticles == 0 && !fireIsOut)
             {
                 wildFireEmission.rateOverTimeMultiplier += diffuseWild;
                 embersEmission.rateOverTimeMultiplier += diffuseEmbers;
@@ -78,6 +78,7 @@ namespace ProjectCustomer.FireMech
         {
             yield return new WaitForSeconds(2.5f);
             EventBroker.CallEventOnFireExtinguished();
+            fireSpawner.StartCountDown();
             Destroy(gameObject);
         }
     }
