@@ -1,18 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class DataHandler : MonoBehaviour
+﻿namespace ProjectCustomer.Core
 {
-    // Start is called before the first frame update
-    void Start()
+    public abstract class DataHandler
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public static int waterParticles;
     }
 }
