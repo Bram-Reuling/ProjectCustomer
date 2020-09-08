@@ -7,9 +7,9 @@ namespace ProjectCustomer.Core
     {
         #region Binocular Actions
 
-        public static Action EventOnBinocularPickUp;
-        public static Action EventOnBinocularEquip;
-        public static Action EventOnBinocularUnEquip;
+        public static event Action EventOnBinocularPickUp;
+        public static event Action EventOnBinocularEquip;
+        public static event Action EventOnBinocularUnEquip;
 
         #endregion
 
@@ -34,10 +34,10 @@ namespace ProjectCustomer.Core
 
         #region Fire Extinguisher Actions
 
-        public static Action EventOnFireStarted;
-        public static Action EventOnFireExtinguished;
+        public static event Action EventOnFireStarted;
+        public static event Action EventOnFireExtinguished;
 
-        public static Action EventOnWaterRefill;
+        public static event Action EventOnWaterRefill;
 
         #endregion
 
@@ -56,6 +56,27 @@ namespace ProjectCustomer.Core
         public static void CallEventOnWaterRefill()
         {
             EventOnWaterRefill?.Invoke();
+        }
+
+        #endregion
+
+        #region Other Actions
+
+        public static event Action EventOnTimerRunOut;
+        public static event Action EventOnMaxFires;
+
+        #endregion
+
+        #region Other Methods
+
+        public static void CallEventOnTimerRunOut()
+        {
+            EventOnTimerRunOut?.Invoke();
+        }
+
+        public static void CallEventOnMaxFires()
+        {
+            EventOnMaxFires?.Invoke();
         }
 
         #endregion

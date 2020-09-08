@@ -19,6 +19,7 @@ namespace ProjectCustomer.Core
         private void Update()
         {
             DataHandler.waterParticles = water.particleCount;
+            DataHandler.waterAmountLeft = ammoAmount;
             
             if (Input.GetMouseButton(0) && ammoAmount > 0)
             {
