@@ -34,6 +34,8 @@ namespace ProjectCustomer.Core
             if (!Physics.Raycast(transform.position, transform.forward, out hit, 10)) return;
             if (hit.transform.GetComponent<IInteractable>() == null) return;
 
+            Debug.Log(hit.collider.gameObject.name);
+            
             if (Input.GetKeyDown(KeyCode.E) && hit.collider.gameObject.name.Equals("Binoculars"))
             {
                 EventBroker.CallEventOnBinocularPickUp();
@@ -56,7 +58,7 @@ namespace ProjectCustomer.Core
 
             xRotation -= mouseY;
 
-            xRotation = Mathf.Clamp(xRotation, -90, 90);
+            xRotation = Mathf.Clamp(xRotation, -90, 35);
 
             transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
             player.Rotate(Vector3.up * mouseX);

@@ -17,6 +17,15 @@ namespace ProjectCustomer.Core
             if (player != null)
             {
                 transform.LookAt(player, Vector3.up);
+                var dist = Vector3.Distance(transform.position, player.transform.position);
+                var clampedDist = Mathf.Clamp(dist, 0, 100);
+
+                var transformLocalScale = transform.localScale;
+                transformLocalScale.x = 0.5f * clampedDist / 750f;
+                transformLocalScale.y = 0.5f * clampedDist / 750f;
+
+                transform.localScale = transformLocalScale;
+
             }
         }
     }
