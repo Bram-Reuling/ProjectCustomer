@@ -31,7 +31,7 @@ namespace ProjectCustomer.Core
 
             RaycastHit hit;
             Debug.DrawRay(transform.position, Camera.main.transform.forward * 5, Color.blue);
-            if (!Physics.Raycast(transform.position, transform.forward, out hit, 5)) return;
+            if (!Physics.Raycast(transform.position, transform.forward, out hit, 10)) return;
             if (hit.transform.GetComponent<IInteractable>() == null) return;
 
             if (Input.GetKeyDown(KeyCode.E) && hit.collider.gameObject.name.Equals("Binoculars"))
@@ -46,8 +46,13 @@ namespace ProjectCustomer.Core
         
         private void CamControl()
         {
-            var mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-            var mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+            #if UNITY_EDITOR
+                var mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+                var mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+            #elif UNITY_WEBGL
+                var mouseX = Input.GetAxis("Mouse X") * 5;
+                var mouseY = Input.GetAxis("Mouse Y") * 5;    
+            #endif
 
             xRotation -= mouseY;
 

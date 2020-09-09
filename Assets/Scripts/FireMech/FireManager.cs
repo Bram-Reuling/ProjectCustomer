@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using ProjectCustomer.Core;
 using UnityEngine;
 using Random = System.Random;
@@ -14,6 +12,8 @@ namespace ProjectCustomer.FireMech
         public List<GameObject> activeFires;
         private Random rnd;
         private float nextTimeCall;
+        public GameObject wayPointPrefab;
+        public GameObject canvas;
 
         private void Start()
         {
@@ -23,15 +23,6 @@ namespace ProjectCustomer.FireMech
 
             Debug.Log(fireSpots.Length);
 
-            // foreach (var fireSpot in fireSpots)
-            // {
-            //     if (!fireSpot.GetComponent<FireSpawner>().occupied)
-            //     {
-            //         var fire = (GameObject)Instantiate(firePrefab, fireSpot.transform.position, fireSpot.transform.rotation);
-            //         fireSpot.GetComponent<FireSpawner>().occupied = true;
-            //         fire.GetComponent<Fire>().fireSpawner = fireSpot.GetComponent<FireSpawner>();
-            //     }
-            // }
             nextTimeCall = Time.time + 5f;
         }
 

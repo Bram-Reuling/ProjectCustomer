@@ -2,12 +2,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace ProjectCustomer.Waypoint
+namespace ProjectCustomer.Core
 {
     public class MissionWaypoint : MonoBehaviour
     {
         #region Fields
-
+        
         public RawImage marker;
         public Transform target;
 
