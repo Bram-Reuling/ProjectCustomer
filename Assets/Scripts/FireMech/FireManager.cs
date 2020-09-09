@@ -10,6 +10,9 @@ namespace ProjectCustomer.FireMech
         public GameObject firePrefab;
         public GameObject[] fireSpots;
         public List<GameObject> activeFires;
+
+        public float timeToSpawnNew = 60f;
+        
         private Random rnd;
         private float nextTimeCall;
         public GameObject wayPointPrefab;
@@ -23,7 +26,8 @@ namespace ProjectCustomer.FireMech
 
             Debug.Log(fireSpots.Length);
 
-            nextTimeCall = Time.time + 5f;
+            nextTimeCall = Time.time + timeToSpawnNew;
+            SetFire();
         }
 
         private void Update()
@@ -31,7 +35,7 @@ namespace ProjectCustomer.FireMech
             if (Time.time >= nextTimeCall)
             {
                 SetFire();
-                nextTimeCall += 5f;
+                nextTimeCall += timeToSpawnNew;
             }
         }
 

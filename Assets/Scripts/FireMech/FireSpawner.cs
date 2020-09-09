@@ -7,6 +7,7 @@ namespace ProjectCustomer.FireMech
     {
         public bool occupied = false;
         private bool stopCoroutine = false;
+        public float cooldownInSeconds = 10f;
 
         private void Update()
         {
@@ -24,7 +25,7 @@ namespace ProjectCustomer.FireMech
 
         public IEnumerator countDown()
         {
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(cooldownInSeconds);
             if (occupied)
             {
                 occupied = false;
