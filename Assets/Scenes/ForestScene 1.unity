@@ -4700,12 +4700,12 @@ Terrain:
   m_Enabled: 1
   serializedVersion: 6
   m_TerrainData: {fileID: 15600000, guid: f9e81d4f26aa3404d8ba6b0dbe670539, type: 2}
-  m_TreeDistance: 300
-  m_TreeBillboardDistance: 200
-  m_TreeCrossFadeLength: 10
+  m_TreeDistance: 400
+  m_TreeBillboardDistance: 150
+  m_TreeCrossFadeLength: 5
   m_TreeMaximumFullLODCount: 50
-  m_DetailObjectDistance: 250
-  m_DetailObjectDensity: 0.5
+  m_DetailObjectDistance: 175
+  m_DetailObjectDensity: 0.2
   m_HeightmapPixelError: 5
   m_SplatMapDistance: 1000
   m_HeightmapMaximumLOD: 0
@@ -5410,7 +5410,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 746925040, guid: e9c3a1873c56066438a7d157f4522470, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 971456009, guid: e9c3a1873c56066438a7d157f4522470, type: 3}
       propertyPath: binocularImage
