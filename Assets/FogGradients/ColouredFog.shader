@@ -1,11 +1,14 @@
-﻿Shader "Custom/FogShader"
+﻿//Modified from Firewatch fog effect by Harry Alisavakis https://halisavakis.com/my-take-on-shaders-firewatch-multi-colored-fog/
+
+Shader "Custom/ColouredFog"
 {
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
-        _FogAmount("Fog amount", float) = 1
         _ColorRamp("Color ramp", 2D) = "white" {}
         _FogIntensity("Fog intensity", float) = 1
+        _FogStart("Fog start distance", float) = 1
+        _FogEnd("Fog end distance", float) = 1
     }
     SubShader
     {
@@ -48,14 +51,17 @@
             sampler2D _ColorRamp;
             float _FogAmount;
             float _FogIntensity;
+            float _FogStart;
+            float _FogEnd;
  
             fixed4 frag (v2f i) : SV_Target
             {
                 fixed4 orCol = tex2D(_MainTex, i.uv);
-                float depthValue = Linear01Depth (tex2Dproj(_CameraDepthTexture, UNITY_PROJ_COORD(i.scrPos)));
-                float depthValueMul = depthValue * _FogAmount;
-                fixed4 fogCol = tex2D(_ColorRamp, (float2(depthValueMul, 0)));
-                return (depthValue < 1) ? lerp(orCol, fogCol, fogCol.a * _FogIntensity) : orCol;
+                float rawDepth = tex2Dproj(_CameraDepthTexture, UNITY_PROJ_COORD(i.scrPos));
+                float depthValue = LinearEyeDepth (rawDepth);
+                float fogValue = (depthValue-_FogStart)/_FogEnd;
+                fixed4 fogCol = tex2D(_ColorRamp, (float2(fogValue, 0)));
+                return (rawDepth > 0) ? lerp(orCol, fogCol, fogCol.a * _FogIntensity) : orCol;
             }
             ENDCG
         }

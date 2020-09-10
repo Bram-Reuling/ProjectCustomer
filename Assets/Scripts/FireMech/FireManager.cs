@@ -32,6 +32,7 @@ namespace ProjectCustomer.FireMech
 
         private void Update()
         {
+
             if (Time.time >= nextTimeCall)
             {
                 SetFire();
@@ -53,6 +54,7 @@ namespace ProjectCustomer.FireMech
                     fireSpots[index].transform.rotation);
                 fireSpots[index].GetComponent<FireSpawner>().occupied = true;
                 fire.GetComponent<Fire>().fireSpawner = fireSpots[index].GetComponent<FireSpawner>();
+                activeFires.Add(fire);
             }
         }
     }
