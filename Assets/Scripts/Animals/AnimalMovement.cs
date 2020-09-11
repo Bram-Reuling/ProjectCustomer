@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
@@ -32,7 +33,7 @@ namespace ProjectCustomer.Animals
             {
                 finalPos = hit.position;
             }
-            
+
             return finalPos;
         }
 
@@ -41,13 +42,19 @@ namespace ProjectCustomer.Animals
             while (true)
             {
                 agent.SetDestination(GetRandomPositionOnNavMesh());
-                yield return new WaitUntil(() => agent.hasPath == false);
+                yield return new WaitUntil(() => !AgentCompletedPath());
             }
         }
 
         private bool AgentCompletedPath()
         {
-            return agent.pathStatus == NavMeshPathStatus.PathComplete;
+            return agent.hasPath;
+        }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, randomPointDistance);
         }
     }
 }
