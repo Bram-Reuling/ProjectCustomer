@@ -2859,7 +2859,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 216b8e178a0be9847a720fa8de6d0b01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randomPointDistance: 20
+  randomPointDistance: 200
 --- !u!195 &5807819158971057411
 NavMeshAgent:
   m_ObjectHideFlags: 0
