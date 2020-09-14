@@ -42,12 +42,8 @@ namespace ProjectCustomer.FireMech
 
         private void SetFire()
         {
-            Debug.Log("Picking Fire");
-
             var index = rnd.Next(fireSpots.Length);
 
-            Debug.Log("Picking: " + index);
-            
             if (!fireSpots[index].GetComponent<FireSpawner>().occupied)
             {
                 var fire = (GameObject) Instantiate(firePrefab, fireSpots[index].transform.position,
