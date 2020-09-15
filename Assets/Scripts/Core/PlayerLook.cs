@@ -34,7 +34,9 @@ namespace ProjectCustomer.Core
             if (!Physics.Raycast(transform.position, transform.forward, out hit, 10)) return;
             if (hit.transform.GetComponent<IInteractable>() == null) return;
 
-            Debug.Log(hit.collider.gameObject.name);
+            var interactableObject = hit.collider.gameObject.GetComponent<IInteractable>();
+
+            //Debug.Log(hit.collider.gameObject.name);
             
             if (Input.GetKeyDown(KeyCode.E) && hit.collider.gameObject.name.Equals("Binoculars"))
             {
@@ -43,6 +45,10 @@ namespace ProjectCustomer.Core
             else if (Input.GetKey(KeyCode.E) && hit.collider.gameObject.name.Equals("WaterRefill"))
             {
                 EventBroker.CallEventOnWaterRefill();
+            }
+            else if (Input.GetKeyDown(KeyCode.E) && (interactableObject != null))
+            {
+                interactableObject.Interacted();
             }
         }
         

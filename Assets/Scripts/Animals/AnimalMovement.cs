@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
-using UnityEditor;
+using ProjectCustomer.Core;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
@@ -8,18 +9,30 @@ using Random = UnityEngine.Random;
 namespace ProjectCustomer.Animals
 {
     [RequireComponent(typeof(NavMeshAgent))]
-    public class AnimalMovement : MonoBehaviour
+    public class AnimalMovement : MonoBehaviour, IInteractable
     {
+        public AnimatorController aliveAnim;
+        public AnimatorController deadAnim;
         public int randomPointDistance;
+
+        public BoxCollider deadBoxCollider;
+        public BoxCollider aliveCollider;
+        
         private NavMeshAgent agent;
+        private Animator animator;
+
+        private bool isAlive;
 
         private void Awake()
         {
             agent = GetComponent<NavMeshAgent>();
+            animator = GetComponent<Animator>();
+            isAlive = true;
         }
 
         private void Start()
         {
+            animator.runtimeAnimatorController = aliveAnim;
             StartCoroutine(SetRandomDestination());
         }
 
@@ -39,7 +52,7 @@ namespace ProjectCustomer.Animals
 
         private IEnumerator SetRandomDestination()
         {
-            while (true)
+            while (isAlive)
             {
                 agent.SetDestination(GetRandomPositionOnNavMesh());
                 yield return new WaitUntil(() => !AgentCompletedPath());
@@ -55,6 +68,36 @@ namespace ProjectCustomer.Animals
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position, randomPointDistance);
+        }
+
+        public void Interacted()
+        {
+            if (!isAlive)
+            {
+                Debug.Log("YES");   
+            }
+        }
+
+        public void Death()
+        {
+            isAlive = false;
+            StopCoroutine(SetRandomDestination());
+            agent.isStopped = true;
+            agent.ResetPath();
+            animator.runtimeAnimatorController = deadAnim;
+            deadBoxCollider.enabled = true;
+            aliveCollider.enabled = false;
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            //Debug.Log("Collision");
+            if (isAlive && other.gameObject.CompareTag("Fire"))
+            {
+                Debug.Log("HIT");
+                StopCoroutine(SetRandomDestination());
+                agent.ResetPath();
+            }
         }
     }
 }

@@ -22,7 +22,7 @@ namespace ProjectCustomer.Core
             currentNumberOfFiresText.text = $"Current Number of Fires: {currentNumberOfFires}";
             
             if (currentNumberOfFires != numberOfFiresToEndGame) return;
-            Debug.Log("MAX FIRES! GAME OVER!");
+            //Debug.Log("MAX FIRES! GAME OVER!");
             EventBroker.CallEventOnMaxFires();
         }
 
