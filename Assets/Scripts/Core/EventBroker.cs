@@ -64,6 +64,7 @@ namespace ProjectCustomer.Core
 
         public static event Action EventOnTimerRunOut;
         public static event Action EventOnMaxFires;
+        public static event Action EventOnFoxRevive;
 
         #endregion
 
@@ -77,6 +78,11 @@ namespace ProjectCustomer.Core
         public static void CallEventOnMaxFires()
         {
             EventOnMaxFires?.Invoke();
+        }
+
+        public static void CallEventOnFoxRevive()
+        {
+            EventOnFoxRevive?.Invoke();
         }
 
         #endregion
