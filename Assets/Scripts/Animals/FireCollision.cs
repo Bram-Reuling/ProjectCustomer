@@ -7,8 +7,11 @@ namespace ProjectCustomer.Animals
         private void OnTriggerEnter(Collider other)
         {
             if (!other.CompareTag("Fox")) return;
-            Debug.Log("Fox is hit");
-            other.gameObject.GetComponent<AnimalMovement>().Death();
+            //Debug.Log("Fox is hit");
+            if (!other.gameObject.GetComponent<AnimalMovement>().isRevived)
+            {
+                other.gameObject.GetComponent<AnimalMovement>().Death();   
+            }
         }
     }
 }

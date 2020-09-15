@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using ProjectCustomer.Core;
 using UnityEditor.Animations;
 using UnityEngine;
@@ -17,22 +18,30 @@ namespace ProjectCustomer.Animals
 
         public BoxCollider deadBoxCollider;
         public BoxCollider aliveCollider;
+
+        public GameObject[] deSpawns;
         
         private NavMeshAgent agent;
         private Animator animator;
 
         private bool isAlive;
+        public bool isRevived;
+
+        private Vector3 endPos;
 
         private void Awake()
         {
             agent = GetComponent<NavMeshAgent>();
             animator = GetComponent<Animator>();
             isAlive = true;
+            isRevived = false;
+            endPos = Vector3.zero;
         }
 
         private void Start()
         {
             animator.runtimeAnimatorController = aliveAnim;
+            deSpawns = GameObject.FindGameObjectsWithTag("DeSpawn");
             StartCoroutine(SetRandomDestination());
         }
 
@@ -72,9 +81,45 @@ namespace ProjectCustomer.Animals
 
         public void Interacted()
         {
-            if (!isAlive)
+            EventBroker.CallEventOnFoxRevive();
+            
+            if (!isAlive && !isRevived)
             {
-                Debug.Log("YES");   
+                isRevived = true;
+
+                foreach (var deSpawn in deSpawns)
+                {
+                    var distance = Vector3.Distance(transform.position, deSpawn.transform.position);
+                    Debug.Log(distance);
+
+                    if (endPos == Vector3.zero)
+                    {
+                        Debug.Log("YEET");
+                        endPos = deSpawn.transform.position;
+                    }
+                    else if (Vector3.Distance(transform.position, endPos) < distance)
+                    {
+                        Debug.Log("YEET2");
+                        endPos = deSpawn.transform.position;
+                    }
+                }
+                
+                Debug.Log("First" + endPos);
+                
+                if (NavMesh.SamplePosition(endPos, out var hit, randomPointDistance, 1))
+                {
+                    endPos = hit.position;
+                }
+                
+                Debug.Log("Second" + endPos);
+                
+                animator.runtimeAnimatorController = aliveAnim;
+                deadBoxCollider.enabled = false;
+                aliveCollider.enabled = true;
+                agent.ResetPath();
+                agent.SetDestination(endPos);
+                
+                Debug.Log("Last" + agent.destination);
             }
         }
 
@@ -82,11 +127,15 @@ namespace ProjectCustomer.Animals
         {
             isAlive = false;
             StopCoroutine(SetRandomDestination());
-            agent.isStopped = true;
-            agent.ResetPath();
+            agent.SetDestination(transform.position);
             animator.runtimeAnimatorController = deadAnim;
             deadBoxCollider.enabled = true;
-            aliveCollider.enabled = false;
+            aliveCollider.enabled = true;
+        }
+
+        public void DeSpawn()
+        {
+            Destroy(gameObject);
         }
 
         private void OnTriggerEnter(Collider other)
