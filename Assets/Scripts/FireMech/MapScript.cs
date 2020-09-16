@@ -65,7 +65,8 @@ namespace ProjectCustomer.FireMech
             {
                 if(spawnPoints[i].GetComponent<FireSpawner>().occupied)
                     markers[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(Map(spawnPoints[i].transform.position.x, 0, 500, -475, 475), Map(spawnPoints[i].transform.position.z, 0, 500, -475, 475));
-
+                else
+                    markers[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(-100000,-100000);
             }
 
             x = playerchar.transform.position.x;
@@ -82,7 +83,8 @@ namespace ProjectCustomer.FireMech
             {
                 for (int i = 0; i < spawnPoints.Length; i++)
                 {
-                    markers[i].SetActive(true);
+                    if (spawnPoints[i].GetComponent<FireSpawner>().occupied)
+                        markers[i].SetActive(true);
                 }
                 map.SetActive(true);
                 player.SetActive(true);
@@ -92,7 +94,8 @@ namespace ProjectCustomer.FireMech
             {
                 for (int i = 0; i < spawnPoints.Length; i++)
                 {
-                    markers[i].SetActive(false);
+                    if (spawnPoints[i].GetComponent<FireSpawner>().occupied)
+                        markers[i].SetActive(false);
                 }
                 map.SetActive(false);
                 player.SetActive(false);

@@ -1277,6 +1277,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1659000996}
     m_Modifications:
+    - target: {fileID: 4039988413918291875, guid: adf6499e518672b42a310088f178ac29, type: 3}
+      propertyPath: cooldownInSeconds
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8175773647447626128, guid: adf6499e518672b42a310088f178ac29, type: 3}
       propertyPath: m_LocalPosition.x
       value: 329.8
@@ -1339,6 +1343,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1659000996}
     m_Modifications:
+    - target: {fileID: 4039988413918291875, guid: adf6499e518672b42a310088f178ac29, type: 3}
+      propertyPath: cooldownInSeconds
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8175773647447626128, guid: adf6499e518672b42a310088f178ac29, type: 3}
       propertyPath: m_LocalPosition.x
       value: 433.52
@@ -2119,6 +2127,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1659000996}
     m_Modifications:
+    - target: {fileID: 4039988413918291875, guid: adf6499e518672b42a310088f178ac29, type: 3}
+      propertyPath: cooldownInSeconds
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8175773647447626128, guid: adf6499e518672b42a310088f178ac29, type: 3}
       propertyPath: m_LocalPosition.x
       value: 104.93
@@ -2880,6 +2892,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1659000996}
     m_Modifications:
+    - target: {fileID: 4039988413918291875, guid: adf6499e518672b42a310088f178ac29, type: 3}
+      propertyPath: cooldownInSeconds
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8175773647447626128, guid: adf6499e518672b42a310088f178ac29, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.59
@@ -6572,6 +6588,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1659000996}
     m_Modifications:
+    - target: {fileID: 4039988413918291875, guid: adf6499e518672b42a310088f178ac29, type: 3}
+      propertyPath: cooldownInSeconds
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8175773647447626128, guid: adf6499e518672b42a310088f178ac29, type: 3}
       propertyPath: m_LocalPosition.x
       value: 432.89
@@ -7853,6 +7873,7 @@ MonoBehaviour:
   - {fileID: 1009170319}
   - {fileID: 1624287573}
   - {fileID: 1966297973}
+  spawnPoints: []
   GameManager: {fileID: 1200926897}
   playerchar: {fileID: 1855235836}
   x: 0
