@@ -16,25 +16,25 @@ MonoBehaviour:
   - name: 1
     clip: {fileID: 8300000, guid: 0c4500454ca49e7419147ee4f7dfe451, type: 3}
     volume: 0.5
-    pitch: 0.5
+    pitch: 1
     source: {fileID: 0}
   - name: 2
     clip: {fileID: 8300000, guid: a0abbb009aa58d341913702da4effb68, type: 3}
     volume: 0.5
-    pitch: 0.5
+    pitch: 1
     source: {fileID: 0}
   - name: 2
     clip: {fileID: 8300000, guid: c5e93e2b80e9f0c4aa04793b3fe69f3e, type: 3}
     volume: 0.5
-    pitch: 0.5
+    pitch: 1
     source: {fileID: 0}
   - name: 3
     clip: {fileID: 8300000, guid: 5953eef0d87bdae499724d16610f7594, type: 3}
     volume: 0.5
-    pitch: 0.5
+    pitch: 1
     source: {fileID: 0}
   - name: 4
     clip: {fileID: 8300000, guid: 1736558a70961704dac817ab32f6dd67, type: 3}
     volume: 0.5
-    pitch: 0.5
+    pitch: 1
     source: {fileID: 0}
