@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using ProjectCustomer.Core;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
@@ -12,8 +11,8 @@ namespace ProjectCustomer.Animals
     [RequireComponent(typeof(NavMeshAgent))]
     public class AnimalMovement : MonoBehaviour, IInteractable
     {
-        public AnimatorController aliveAnim;
-        public AnimatorController deadAnim;
+        public RuntimeAnimatorController aliveAnim;
+        public RuntimeAnimatorController deadAnim;
         public int randomPointDistance;
 
         public BoxCollider deadBoxCollider;

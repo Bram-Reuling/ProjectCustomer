@@ -33,6 +33,8 @@ namespace ProjectCustomer.FireMech
         private void Update()
         {
 
+            DataHandler.openFires= activeFires;
+
             if (Time.time >= nextTimeCall)
             {
                 SetFire();

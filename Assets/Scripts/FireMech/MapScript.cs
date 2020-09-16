@@ -6,7 +6,7 @@ using UnityEngine;
 
 
 
-namespace ProjectCustomer.Core
+namespace ProjectCustomer.FireMech
 {
 
     public class MapScript : MonoBehaviour
@@ -20,11 +20,16 @@ namespace ProjectCustomer.Core
 
         public GameObject map;
         public GameObject player;
+        public GameObject[] markers;
+        public GameObject[] spawnPoints;
+        public GameObject GameManager;
+
 
         public GameObject playerchar;
 
         public float x, z,mappedx,mappedz;
 
+     
         RectTransform m_RectTransform;
         RectTransform p_RectTransform;
 
@@ -34,17 +39,35 @@ namespace ProjectCustomer.Core
         {
             map.SetActive(false);
             player.SetActive(false);
+
             m_RectTransform = map.GetComponent<RectTransform>();
             p_RectTransform = player.GetComponent<RectTransform>();
 
+            spawnPoints = GameObject.FindGameObjectsWithTag("FireSpawner");
+
+            for (int i = 0; i < spawnPoints.Length; i++)
+            {
+                markers[i].SetActive(false);
+            }
+
             // (0,0) on the player is -353 -312
             // 500 500 on the player is 350 312
+
+
 
         }
 
         // Update is called once per frame
         void Update()
         {
+
+            for (int i=0;i < spawnPoints.Length;i++)
+            {
+                if(spawnPoints[i].GetComponent<FireSpawner>().occupied)
+                    markers[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(Map(spawnPoints[i].transform.position.x, 0, 500, -475, 475), Map(spawnPoints[i].transform.position.z, 0, 500, -475, 475));
+                else
+                    markers[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(-100000,-100000);
+            }
 
             x = playerchar.transform.position.x;
             z = playerchar.transform.position.z;
@@ -58,13 +81,22 @@ namespace ProjectCustomer.Core
 
             if (Input.GetKeyDown(KeyCode.Tab))
             {
-
+                for (int i = 0; i < spawnPoints.Length; i++)
+                {
+                    if (spawnPoints[i].GetComponent<FireSpawner>().occupied)
+                        markers[i].SetActive(true);
+                }
                 map.SetActive(true);
                 player.SetActive(true);
             }
 
             if (Input.GetKeyUp(KeyCode.Tab))
             {
+                for (int i = 0; i < spawnPoints.Length; i++)
+                {
+                    if (spawnPoints[i].GetComponent<FireSpawner>().occupied)
+                        markers[i].SetActive(false);
+                }
                 map.SetActive(false);
                 player.SetActive(false);
             }
