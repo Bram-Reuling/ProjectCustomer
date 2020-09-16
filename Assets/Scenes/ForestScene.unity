@@ -5192,18 +5192,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1195619863}
     m_Modifications:
-    - target: {fileID: 2127481357, guid: bd07a3b59ccc6014fadb8a13d751ba5b, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2127481357, guid: bd07a3b59ccc6014fadb8a13d751ba5b, type: 3}
-      propertyPath: m_Radius
-      value: 600
-      objectReference: {fileID: 0}
-    - target: {fileID: 4632296470770994488, guid: bd07a3b59ccc6014fadb8a13d751ba5b, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8146707997514302933, guid: bd07a3b59ccc6014fadb8a13d751ba5b, type: 3}
       propertyPath: m_Name
       value: fox 3 1

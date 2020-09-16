@@ -71,12 +71,6 @@ namespace ProjectCustomer.FireMech
 
         private void Update()
         {
-            if (!fireNotifSend)
-            {
-                fireNotifSend = true;
-                EventBroker.CallEventOnFireStarted();    
-            }
-            
             if (DataHandler.waterParticles == 0 && !fireIsOut)
             {
                 wildFireEmission.rateOverTimeMultiplier += lightUpWild;
@@ -94,13 +88,20 @@ namespace ProjectCustomer.FireMech
                 if (fireIsOut) return;
                 fireIsOut = true;
                 if (isSideFire) return;
-                StartCoroutine(DestroyTimer());   
+                StartCoroutine(DestroyTimer());
             } else if (wildFireEmission.rateOverTimeMultiplier >= maxWildFireEmission && embersEmission.rateOverTimeMultiplier >= maxEmbersEmission &&
                        fireEmission.rateOverTimeMultiplier >= maxFireEmission)
             {
                 if (startedSpawnCoroutine) return;
                 StartCoroutine(SpawnNewFires());
                 startedSpawnCoroutine = true;
+            }
+            
+            if (isSideFire) return;
+            if (!fireNotifSend)
+            {
+                fireNotifSend = true;
+                EventBroker.CallEventOnFireStarted();    
             }
         }
 
@@ -114,8 +115,16 @@ namespace ProjectCustomer.FireMech
         IEnumerator DestroyTimer()
         {
             yield return new WaitForSeconds(2.5f);
-            EventBroker.CallEventOnFireExtinguished();
-            fireSpawner.StartCountDown();
+
+            if (!isSideFire)
+            {
+                EventBroker.CallEventOnFireExtinguished();                
+            }
+
+            if (fireSpawner != null)
+            {
+                fireSpawner.StartCountDown();   
+            }
             Destroy(gameObject);
         }
 
@@ -131,6 +140,7 @@ namespace ProjectCustomer.FireMech
                 // Instantiate fire on that position
                 var fireInstance = Instantiate(firePrefab);
                 fireInstance.transform.position = spawnPosition;
+                fireInstance.gameObject.GetComponent<Fire>().isSideFire = true;
                 index++;
             }
             yield return null;

@@ -309,8 +309,8 @@ MonoBehaviour:
   lightUpPerParticle: 0.0005
   startEmissionDivider: 0.1
   timeBetweenSpawns: 15
-  numberOfSpawns: 2
-  spawnArea: 2
+  numberOfSpawns: 1
+  spawnArea: 5
   fireSpawner: {fileID: 0}
   firePrefab: {fileID: 8993581065383149605, guid: ffea40c497a58674ab1064c8894f6325, type: 3}
 --- !u!82 &2656513767023434434

@@ -2865,8 +2865,10 @@ MonoBehaviour:
   aliveAnim: {fileID: 9100000, guid: dfdf558564d3d4fe2be7fb52a45e3503, type: 2}
   deadAnim: {fileID: 9100000, guid: f3010b411b52347c88b7d261118a9987, type: 2}
   randomPointDistance: 10
-  deadBoxCollider: {fileID: 0}
-  aliveCollider: {fileID: 0}
+  deadBoxCollider: {fileID: 4632296470770994488}
+  aliveCollider: {fileID: 5294817008562711522}
+  deSpawns: []
+  isRevived: 0
 --- !u!195 &5807819158971057411
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2927,7 +2929,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
