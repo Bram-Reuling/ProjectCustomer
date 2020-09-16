@@ -27,7 +27,7 @@ namespace ProjectCustomer.FireMech
             Debug.Log(fireSpots.Length);
 
             nextTimeCall = Time.time + timeToSpawnNew;
-            SetFire();
+            //SetFire();
         }
 
         private void Update()

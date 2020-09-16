@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3440faa489b24f42ad372b87bcda5435, type: 3}
+  m_Name: StartDialogue
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: 
+    clip: {fileID: 8300000, guid: 734c808584b575247bf86da5971a60bf, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 8300000, guid: e2f44f87061286540871577b6d1c05f7, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 8300000, guid: 4261afe07697b4a4a848ae57e836e806, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 8300000, guid: 061e3db5fa6cc0945adaa9945abf4615, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
