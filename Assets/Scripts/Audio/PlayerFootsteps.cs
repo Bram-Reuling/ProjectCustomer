@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using ProjectCustomer.Core;
 using UnityEngine;
 
 namespace ProjectCustomer.Audio
@@ -46,11 +47,11 @@ namespace ProjectCustomer.Audio
 
                     if (fRand <= 0.5f)
                     {
-                        GetComponent<AudioSource>().PlayOneShot(walkSound, 0.7f);
+                        GetComponent<AudioSource>().PlayOneShot(walkSound, DataHandler.sfxVolume);
                     }
                     else
                     {
-                        GetComponent<AudioSource>().PlayOneShot(walkSound2, 0.7f);
+                        GetComponent<AudioSource>().PlayOneShot(walkSound2, DataHandler.sfxVolume);
                     }
                     nextFootstep += chosenfootstepDelay;
                 }

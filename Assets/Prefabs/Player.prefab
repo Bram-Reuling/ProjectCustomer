@@ -559,6 +559,7 @@ GameObject:
   - component: {fileID: 1855235842}
   - component: {fileID: 1855235843}
   - component: {fileID: 6224616717495470049}
+  - component: {fileID: 7868182047997243858}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -596,8 +597,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dae5c0565fdf9d4499920957936535d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  runSpeed: 20
+  speed: 7
+  runSpeed: 10
   gravity: -19.62
   jumpHeight: 1
   groundCheck: {fileID: 984803945790541484}
@@ -901,6 +902,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7868182047997243858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984803946265287313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2cf8b83fbed43da81e4baefb13a5f39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicVolume: {fileID: 6224616717495470049}
+  voiceVolume: {fileID: 0}
+  sfxVolume: {fileID: 0}
 --- !u!1 &984803946352402481
 GameObject:
   m_ObjectHideFlags: 0
@@ -1182,9 +1198,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d19250bdd4e0df4c8da855e85a8d70b, type: 3}
---- !u!4 &4696879533769307023 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4434907143542138, guid: 3d19250bdd4e0df4c8da855e85a8d70b, type: 3}
+--- !u!198 &4872587075829503049 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198020576693072572, guid: 3d19250bdd4e0df4c8da855e85a8d70b, type: 3}
   m_PrefabInstance: {fileID: 4693149433204319989}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &4694910358295592107 stripped
@@ -1192,8 +1208,8 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1907188104338014, guid: 3d19250bdd4e0df4c8da855e85a8d70b, type: 3}
   m_PrefabInstance: {fileID: 4693149433204319989}
   m_PrefabAsset: {fileID: 0}
---- !u!198 &4872587075829503049 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 198020576693072572, guid: 3d19250bdd4e0df4c8da855e85a8d70b, type: 3}
+--- !u!4 &4696879533769307023 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4434907143542138, guid: 3d19250bdd4e0df4c8da855e85a8d70b, type: 3}
   m_PrefabInstance: {fileID: 4693149433204319989}
   m_PrefabAsset: {fileID: 0}

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using ProjectCustomer.Core;
+using UnityEngine;
 
 namespace ProjectCustomer.Animals
 {
@@ -6,11 +7,17 @@ namespace ProjectCustomer.Animals
     {
         private void OnTriggerEnter(Collider other)
         {
+            if (other.CompareTag("Player"))
+            {
+                EventBroker.CallEventOnCloseToFire();
+            }
+            
             if (!other.CompareTag("Fox")) return;
             //Debug.Log("Fox is hit");
             if (!other.gameObject.GetComponent<AnimalMovement>().isRevived)
             {
-                other.gameObject.GetComponent<AnimalMovement>().Death();   
+                other.gameObject.GetComponent<AnimalMovement>().Death();
+                EventBroker.CallEventOnFoxDown();
             }
         }
     }

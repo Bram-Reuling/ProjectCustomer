@@ -8,7 +8,7 @@ namespace ProjectCustomer.Core
         #region Fields
 
         public Transform player;
-        [Range(1, 1000)] public int mouseSensitivity = 100;
+        [Range(1, 1000)] public float mouseSensitivity = 100;
 
         private float xRotation = 0f;
 
@@ -19,6 +19,7 @@ namespace ProjectCustomer.Core
         private void Start()
         {
             Cursor.lockState = CursorLockMode.Locked;
+            mouseSensitivity = DataHandler.sensetivity;
         }
 
         #endregion

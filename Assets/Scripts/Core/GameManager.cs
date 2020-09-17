@@ -8,6 +8,7 @@ namespace ProjectCustomer.Core
         public TextMeshProUGUI currentNumberOfFiresText;
         public int numberOfFiresToEndGame = 4;
         private int currentNumberOfFires;
+        private int currentNumberOfFoxesDown;
         private LevelLoader levelLoader;
         public int sceneIdToSwitchTo;
 
@@ -19,8 +20,10 @@ namespace ProjectCustomer.Core
             EventBroker.EventOnFoxRevive += FoxesReviveIncrease;
 
             EventBroker.EventOnTimerRunOut += TimerRunOut;
+            EventBroker.EventOnFoxDown += FoxDown;
 
             currentNumberOfFires = 0;
+            currentNumberOfFoxesDown = 0;
 
             levelLoader = GetComponent<LevelLoader>();
         }
@@ -38,9 +41,15 @@ namespace ProjectCustomer.Core
             levelLoader.LoadNewScene(sceneIdToSwitchTo);
         }
 
+        public void FoxDown()
+        {
+            currentNumberOfFoxesDown++;
+        }
+        
         private void FoxesReviveIncrease()
         {
             DataHandler.numberOfFoxesRevived++;
+            currentNumberOfFoxesDown--;
         }
 
         private void TimerRunOut()

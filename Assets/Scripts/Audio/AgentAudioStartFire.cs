@@ -21,7 +21,7 @@ namespace ProjectCustomer.Audio
                     callAudio.source = gameObject.AddComponent<AudioSource>();
                     callAudio.source.clip = callAudio.clip;
 
-                    //callAudio.source.volume = callAudio.volume;
+                    callAudio.source.volume = DataHandler.voiceVolume;
                     //callAudio.source.pitch = callAudio.pitch;
                 }   
             }
@@ -33,7 +33,7 @@ namespace ProjectCustomer.Audio
                     responseAudio.source = gameObject.AddComponent<AudioSource>();
                     responseAudio.source.clip = responseAudio.clip;
 
-                    //responseAudio.source.volume = responseAudio.volume;
+                    responseAudio.source.volume = DataHandler.voiceVolume;
                     //responseAudio.source.pitch = responseAudio.pitch;
                 }
             }

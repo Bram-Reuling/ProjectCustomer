@@ -276,8 +276,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9526b088a41e3de43891deb33bcd21d3, type: 2}
+  m_sharedMaterial: {fileID: 6285619403312690081, guid: 9526b088a41e3de43891deb33bcd21d3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -363,6 +363,7 @@ GameObject:
   - component: {fileID: 752652251}
   - component: {fileID: 752652252}
   - component: {fileID: 752652253}
+  - component: {fileID: 752652254}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -397,8 +398,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statText: {fileID: 11400000, guid: bcb491e4304b00642b0af3443867470f, type: 2}
-  secondsBetweenText: 2
-  typeSpeed: 0.05
+  secondsBetweenText: 5
+  typeSpeed: 0.07
   textBox: {fileID: 232886586}
   sceneToSwitchTo: 0
 --- !u!114 &752652252
@@ -509,6 +510,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &752652254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752652249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2cf8b83fbed43da81e4baefb13a5f39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicVolume: {fileID: 752652253}
+  voiceVolume: {fileID: 0}
+  sfxVolume: {fileID: 0}
 --- !u!1 &864917130
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ namespace ProjectCustomer.Core
         public float camFocalLength;
 
         public PlayerLook playerCam;
-        public int origSens;
+        public float origSens;
 
         private BinocularBaseState currentState;
 
