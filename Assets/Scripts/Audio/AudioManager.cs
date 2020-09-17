@@ -102,6 +102,13 @@ namespace ProjectCustomer.Audio
             }
 
             isConversationOver = true;
+            EventBroker.CallEventOnConvoOver();
+        }
+
+        private void OnDestroy()
+        {
+            EventBroker.EventOnCloseToFire -= CloseToFire;
+            EventBroker.EventOnFoxRevive -= FoxRevived;
         }
     }
 }

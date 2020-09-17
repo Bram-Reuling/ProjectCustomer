@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using ProjectCustomer.Core;
 using TMPro;
@@ -39,6 +40,12 @@ namespace ProjectCustomer.NotificationSystem
             activePrefab = Instantiate(prefab);   
             text = activePrefab.GetComponent<NotificationBox>().textNotification;
             text.text = notificationText;
+        }
+
+        private void OnDestroy()
+        {
+            EventBroker.EventOnFireStarted -= EventOnFireStarted;
+            EventBroker.EventOnFireExtinguished -= EventOnFireExtinguished;
         }
     }
 }

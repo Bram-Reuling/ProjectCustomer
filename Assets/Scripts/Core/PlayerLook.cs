@@ -72,5 +72,10 @@ namespace ProjectCustomer.Core
         }
 
         #endregion
+
+        private void OnDestroy()
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
 }

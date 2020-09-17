@@ -67,6 +67,7 @@ namespace ProjectCustomer.Core
         public static event Action EventOnFoxRevive;
         public static event Action EventOnFoxDown;
         public static event Action EventOnCloseToFire;
+        public static event Action EventOnConvoOver;
 
         #endregion
 
@@ -95,6 +96,11 @@ namespace ProjectCustomer.Core
         public static void CallEventOnCloseToFire()
         {
             EventOnCloseToFire?.Invoke();
+        }
+
+        public static void CallEventOnConvoOver()
+        {
+            EventOnConvoOver?.Invoke();
         }
         
         #endregion

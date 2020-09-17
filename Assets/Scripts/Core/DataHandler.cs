@@ -15,6 +15,7 @@ namespace ProjectCustomer.Core
         public static int numberOfFoxesInScene = 0;
 
         public static bool playerLost = false;
+        public static bool convoIsOver = false;
 
         public static float musicVolume=1;
         public static float voiceVolume=1;

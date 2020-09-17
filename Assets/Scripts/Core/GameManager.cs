@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -125,5 +126,15 @@ namespace ProjectCustomer.Core
             CheckFlicker();
         }
 
+        private void OnDestroy()
+        {
+            EventBroker.EventOnFireStarted -= CurrentFireIncrease;
+            EventBroker.EventOnFireExtinguished -= CurrentFireDecrease;
+
+            EventBroker.EventOnFoxRevive -= FoxesReviveIncrease;
+
+            EventBroker.EventOnTimerRunOut -= TimerRunOut;
+            EventBroker.EventOnFoxDown -= FoxDown;
+        }
     }
 }

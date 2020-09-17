@@ -27,5 +27,10 @@ namespace ProjectCustomer.Animals
             Debug.Log("Fox is hit");
             other.gameObject.GetComponent<AnimalMovement>().DeSpawn();
         }
+
+        private void OnDestroy()
+        {
+            EventBroker.EventOnFoxRevive -= FoxRevive;
+        }
     }
 }

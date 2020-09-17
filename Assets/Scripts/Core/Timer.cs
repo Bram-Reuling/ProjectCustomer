@@ -52,5 +52,10 @@ namespace ProjectCustomer.Core
         {
             timeRemaining += addSecondsPerFireExtinguished;
         }
+
+        private void OnDestroy()
+        {
+            EventBroker.EventOnFireExtinguished -= AddSeconds;
+        }
     }
 }

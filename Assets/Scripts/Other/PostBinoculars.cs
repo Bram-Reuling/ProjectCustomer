@@ -35,5 +35,11 @@ namespace ProjectCustomer.Other
             chromaticAberration.enabled.value = effectsOn;
             lensDistortion.enabled.value = effectsOn;
         }
+
+        private void OnDestroy()
+        {
+            EventBroker.EventOnBinocularEquip -= EffectsOn;
+            EventBroker.EventOnBinocularUnEquip -= EffectsOff;
+        }
     }
 }

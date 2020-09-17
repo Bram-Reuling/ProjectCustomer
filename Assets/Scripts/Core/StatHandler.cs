@@ -67,7 +67,7 @@ namespace ProjectCustomer.Core
             }
             else
             {
-                displayText = "You Won! You managed to keep the under control!";
+                displayText = "You Won! You managed to keep the fires under control!";
                 textBox.color = Color.green;
                 StartCoroutine(TypewriterEffect(displayText));
 

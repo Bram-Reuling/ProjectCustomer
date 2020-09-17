@@ -1,4 +1,5 @@
-﻿using ProjectCustomer.Core;
+﻿using System;
+using ProjectCustomer.Core;
 using UnityEngine;
 
 namespace ProjectCustomer.Audio
@@ -43,6 +44,11 @@ namespace ProjectCustomer.Audio
         private void EventOnFireExtinguished()
         {
             
+        }
+
+        private void OnDestroy()
+        {
+            EventBroker.EventOnFireExtinguished -= EventOnFireExtinguished;
         }
     }
 }

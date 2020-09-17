@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using ProjectCustomer.Core;
 using UnityEngine;
 using Random = System.Random;
@@ -18,27 +19,42 @@ namespace ProjectCustomer.FireMech
         public GameObject wayPointPrefab;
         public GameObject canvas;
 
+        private bool convoIsOver = false;
+        private bool setNextTimeCall = false;
+
         private void Start()
         {
+            EventBroker.EventOnConvoOver += ConvoOver;
             rnd = new Random();
             activeFires = new List<GameObject>();
             fireSpots = GameObject.FindGameObjectsWithTag("FireSpawner");
 
             Debug.Log(fireSpots.Length);
-
-            nextTimeCall = Time.time + timeToSpawnNew;
             //SetFire();
         }
 
+        private void ConvoOver()
+        {
+            convoIsOver = true;
+        }
+        
         private void Update()
         {
-
             DataHandler.openFires= activeFires;
 
-            if (Time.time >= nextTimeCall)
+            if (convoIsOver)
             {
-                SetFire();
-                nextTimeCall += timeToSpawnNew;
+                if (!setNextTimeCall)
+                {
+                    nextTimeCall = Time.time + timeToSpawnNew;
+                    setNextTimeCall = true;
+                }
+                
+                if (Time.time >= nextTimeCall)
+                {
+                    SetFire();
+                    nextTimeCall += timeToSpawnNew;
+                }
             }
         }
 
@@ -54,6 +70,11 @@ namespace ProjectCustomer.FireMech
                 fire.GetComponent<Fire>().fireSpawner = fireSpots[index].GetComponent<FireSpawner>();
                 activeFires.Add(fire);
             }
+        }
+
+        private void OnDestroy()
+        {
+            EventBroker.EventOnConvoOver -= ConvoOver;
         }
     }
 }

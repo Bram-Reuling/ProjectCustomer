@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using ProjectCustomer.Core;
 using UnityEngine;
@@ -68,6 +69,11 @@ namespace ProjectCustomer.Audio
             var responseSource = responses.sounds[responsesIndex].source;
             responseSource.Play();
 
+        }
+
+        private void OnDestroy()
+        {
+            EventBroker.EventOnFireStarted -= EventOnFireStarted;
         }
     }
 }
