@@ -21,8 +21,8 @@ namespace ProjectCustomer.Audio
                     callAudio.source = gameObject.AddComponent<AudioSource>();
                     callAudio.source.clip = callAudio.clip;
 
-                    callAudio.source.volume = callAudio.volume;
-                    callAudio.source.pitch = callAudio.pitch;
+                    //callAudio.source.volume = callAudio.volume;
+                    //callAudio.source.pitch = callAudio.pitch;
                 }   
             }
 
@@ -33,8 +33,8 @@ namespace ProjectCustomer.Audio
                     responseAudio.source = gameObject.AddComponent<AudioSource>();
                     responseAudio.source.clip = responseAudio.clip;
 
-                    responseAudio.source.volume = responseAudio.volume;
-                    responseAudio.source.pitch = responseAudio.pitch;
+                    //responseAudio.source.volume = responseAudio.volume;
+                    //responseAudio.source.pitch = responseAudio.pitch;
                 }
             }
         }

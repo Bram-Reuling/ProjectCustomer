@@ -24,8 +24,8 @@ namespace ProjectCustomer.Audio
                     dialogueAudio.source = gameObject.AddComponent<AudioSource>();
                     dialogueAudio.source.clip = dialogueAudio.clip;
 
-                    dialogueAudio.source.volume = dialogueAudio.volume;
-                    dialogueAudio.source.pitch = dialogueAudio.pitch;
+                    //dialogueAudio.source.volume = dialogueAudio.volume;
+                    //dialogueAudio.source.pitch = dialogueAudio.pitch;
                 }
             }
             audioSource = GetComponent<AudioSource>();
@@ -44,8 +44,8 @@ namespace ProjectCustomer.Audio
             {
                var index = rnd.Next(audioListBG.sounds.Count);
                audioSource.clip = audioListBG.sounds[index].clip;
-               audioSource.volume = audioListBG.sounds[index].volume;
-               audioSource.pitch = audioListBG.sounds[index].pitch;
+               //audioSource.volume = audioListBG.sounds[index].volume;
+               //audioSource.pitch = audioListBG.sounds[index].pitch;
                
                audioSource.Play();
             }
