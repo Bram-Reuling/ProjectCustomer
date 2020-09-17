@@ -848,6 +848,7 @@ GameObject:
   - component: {fileID: 7238802046884546856}
   - component: {fileID: 7238802046884546858}
   - component: {fileID: 7238802046884546859}
+  - component: {fileID: 1200926898}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -898,7 +899,7 @@ MonoBehaviour:
   firePrefab: {fileID: 8993581065383149605, guid: 0fa952093986da44e9f6eb8205b2fc10, type: 3}
   fireSpots: []
   activeFires: []
-  timeToSpawnNew: 30
+  timeToSpawnNew: 20
   wayPointPrefab: {fileID: 8542551142636891436, guid: 06e91264ba54dce4ea7951539b13d189, type: 3}
   canvas: {fileID: 7238802047139640498}
 --- !u!114 &7238802046884546859
@@ -914,8 +915,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeRemaining: 180
-  addSecondsPerFireExtinguished: 10
+  addSecondsPerFireExtinguished: 0
   timerText: {fileID: 7238802045450745670}
+--- !u!114 &1200926898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7238802046884546860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f998f492f725280408fc3569f9f7f500, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7238802047094865719
 GameObject:
   m_ObjectHideFlags: 0
@@ -1498,7 +1511,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 1342db6639042a945995470e1ea26819, type: 3}
+  m_Texture: {fileID: 2800000, guid: 3ae9b7a772b548f45a3149f24b52b050, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
