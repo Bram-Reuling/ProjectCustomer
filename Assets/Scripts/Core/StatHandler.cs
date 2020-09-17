@@ -52,6 +52,12 @@ namespace ProjectCustomer.Core
                     textBox.color = Color.white;
                     StartCoroutine(TypewriterEffect(displayText));
                 }
+                else if (DataHandler.numberOfFoxesRevived == 0)
+                {
+                    displayText = "But not a single one died.";
+                    textBox.color = Color.white;
+                    StartCoroutine(TypewriterEffect(displayText));
+                }
                 else
                 {
                     displayText = $"{DataHandler.numberOfFoxesInScene} foxes have died by the fire...";
@@ -61,7 +67,7 @@ namespace ProjectCustomer.Core
             }
             else
             {
-                displayText = "You Won! You managed to keep the fires to a minimal!";
+                displayText = "You Won! You managed to keep the under control!";
                 textBox.color = Color.green;
                 StartCoroutine(TypewriterEffect(displayText));
 
@@ -78,6 +84,10 @@ namespace ProjectCustomer.Core
 
             displayText = $"{DataHandler.numberOfFoxesRevived} foxes rescued...";
             StartCoroutine(TypewriterEffect(displayText));
+
+            yield return new WaitUntil(() => doneTyping);
+            yield return new WaitForSeconds(secondsBetweenText);
+
 
             yield return new WaitUntil(() => doneTyping);
             yield return new WaitForSeconds(secondsBetweenText);

@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78201291499145669fd3880dc1df6662, type: 3}
+  m_Name: NewStatSeq
+  m_EditorClassIdentifier: 
+  statTextBoxes:
+  - textToDisplay: You reached the end of the day. Don't Panic.
+  - textToDisplay: There are typically about 100,000 wildfires in the United States
+      every year.
+  - textToDisplay: 'From January 1 to September 8, 2020 there were 41,051 wildfires
+      compared with 35,386 wildfires in the same period in 2019, according to the
+      National Interagency Fire Center. '
+  - textToDisplay: About 4.7 million acres were burned in the 2020 period, compared
+      with 4.2 million acres in 2019.
+  - textToDisplay: Some of the Deadliest and most destructive wildfires in California
+      history include;
+  - textToDisplay: "\u201CCamp Fire\u201D which was caused power lines, in November
+      2018 which burned 153.3k acres, 18.8k structures and killed 85 in the county
+      of Butte."
+  - textToDisplay: "\u201CGriffith Park\u201D which the cause is still unknown, in
+      October 1933 which burned 47 acres, no structures but killed 29 in the county
+      of Los Angeles."
+  - textToDisplay: "\u201CTunnel \u2013 Oakland Hills\u201D which was caused by a
+      rekindle, in October 1991 which burned 1.6k acres, 2.9k structures and killed
+      25 in the county of Alameda."

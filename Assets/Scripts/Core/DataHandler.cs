@@ -16,9 +16,9 @@ namespace ProjectCustomer.Core
 
         public static bool playerLost = false;
 
-        public static float musicVolume;
-        public static float voiceVolume;
-        public static float sfxVolume;
-        public static float sensetivity;
+        public static float musicVolume=1;
+        public static float voiceVolume=1;
+        public static float sfxVolume=1;
+        public static float sensetivity=1000;
     }
 }

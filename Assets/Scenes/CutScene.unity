@@ -397,7 +397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b249b50c15fe472187d96dcdc5222149, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statText: {fileID: 11400000, guid: bcb491e4304b00642b0af3443867470f, type: 2}
+  statText: {fileID: 11400000, guid: 98df0262daba4674b81280aae6552854, type: 2}
   secondsBetweenText: 5
   typeSpeed: 0.07
   textBox: {fileID: 232886586}
