@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: cdaa7a75785993949a2eb2ef25a64077
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - The Hand
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: e39ecb118345ec9468f83c0c96a9148e, type: 3}
+  - {fileID: 12800000, guid: 06ffcfc7a0c053d40adb9928e393101c, type: 3}
+  - {fileID: 12800000, guid: d554a90c3e184c746b8d9004cc842d2f, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
